@@ -103,8 +103,7 @@ services:
       - letsencrypt:/etc/letsencrypt:ro
     ports:
       - "127.0.0.1:7783:7783"
-      - "42855:42855"
-      - "42845:42845"
+      - "32326:32326"
     depends_on:
       - certbot
 

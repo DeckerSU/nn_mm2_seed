@@ -7,7 +7,7 @@ import mnemonic
 
 conf = {
     "gui": "DRAGON_SEED",
-    "netid": 8762,
+    "netid": 6133,
     "i_am_seed":True,
     "rpc_password": "RPC_CONTROL_USERPASSWORD",
     "passphrase": "YOUR SEED PHRASE",

@@ -31,4 +31,4 @@ COPY ./ /home/komodian/kdf
 RUN PATH=/usr/local/bin/:$PATH
 RUN chown -R komodian:komodian /home/komodian
 USER komodian
-EXPOSE 7783 42855
+EXPOSE 7783 32326

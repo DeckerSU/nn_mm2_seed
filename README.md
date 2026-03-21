@@ -28,8 +28,7 @@ docker compose up -d --build && docker compose logs -f --tail 5
 ### Step 4: Open the KDF Seednode Ports
 
 ```bash
-sudo ufw allow 42855
-sudo ufw allow 42845
+sudo ufw allow 32326
 ```
 
 **Note about port 80:** If you're using CloudFlare DNS plugin (by setting `CLOUDFLARE_API_TOKEN`), port 80 is not needed and can remain closed. Otherwise, port 80 must be open for Let's Encrypt HTTP validation.

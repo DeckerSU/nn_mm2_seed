@@ -41,7 +41,7 @@ jq -n \
 --arg userhome "/${HOME#\"/\"}" \
 '{
   gui: $gui,
-  netid: 8762,
+  netid: 6133,
   i_am_seed: true,
   rpc_password: $rpc,
   passphrase: $pass,
