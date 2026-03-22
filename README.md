@@ -40,6 +40,7 @@ Notes:
 - **Standalone Mode (default):** If `CLOUDFLARE_API_TOKEN` is not set, certbot uses standalone HTTP challenge on port 80. Ensure TCP/80 is reachable from the internet for issuance and renewals.
 - `run_mm2.sh` auto-updates `MM2.json` `seednodes` from the remote list on each start.
 - First boot is non-interactive: if `MM2.json` does not exist, it is generated automatically using `USERPASS` and `PASSPHRASE` envs (or securely generated defaults). If `DOMAIN` is set and certificates exist, `wss_certs` is added automatically.
+- The `DB/` directory in the repo root is bind-mounted to `/home/komodian/.kdf/DB` inside the container. This is equivalent to setting `"dbdir": "/home/komodian/.kdf/DB"` in `MM2.json` and is the default location KDF uses for its database files. Mounting it explicitly keeps DB files on the host for persistence and easy access.
 - Certbot runs continuously inside its container and will attempt automatic renewals every ~12 hours.
 - The `coins` file is refreshed automatically on each start from `https://raw.githubusercontent.com/GLEECBTC/coins/refs/heads/master/coins` and saved to `~/.kdf/coins` inside the container.
 

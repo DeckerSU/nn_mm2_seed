@@ -14,6 +14,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FILES=("MM2.json" "kdf.log" "userpass")
+DIRS=("DB")
 CURRENT_USER="$(id -un)"
 
 # Check that setfacl is available
@@ -40,6 +41,17 @@ for file in "${FILES[@]}"; do
         echo "  [ok] ${file}"
     else
         echo "  [skip] ${file} — file not found (will be created by the container on first run)"
+    fi
+done
+
+# Apply ACLs on directories (rwx so the container can create files inside)
+for dir in "${DIRS[@]}"; do
+    target="${SCRIPT_DIR}/${dir}"
+    if [ -d "${target}" ]; then
+        setfacl -m "u:${CURRENT_USER}:rwx" "${target}"
+        echo "  [ok] ${dir}/"
+    else
+        echo "  [skip] ${dir}/ — directory not found"
     fi
 done
 

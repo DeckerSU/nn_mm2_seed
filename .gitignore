@@ -1,4 +1,5 @@
-DB/
+DB/*
+!DB/.gitkeep
 coins
 mm2
 *.zip
